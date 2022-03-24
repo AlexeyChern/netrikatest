@@ -1,0 +1,28 @@
+<table border="1" , align="left">
+<caption>Top cities</caption>
+
+    {% for o in cities %}
+    <tr>
+        <td>
+            <a href="citypage/{{o.id}}">{{ o.cityname }}</a>
+        </td>
+        <td> {{o.count}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+<table border="1" , align="right">
+    <caption>All people</caption>
+
+    {% for o in people %}
+    <tr class="{% cycle 'row1' 'row2' %}">
+        <td>
+            {{ o.fio }}
+        </td>
+        <td>
+            <a href="citypage/{{o.cityid}}">{{ o.city }}</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
