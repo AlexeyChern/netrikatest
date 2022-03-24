@@ -10,8 +10,9 @@ from django.http import HttpResponse
 
 class GetCityInfo(APIView):
     def get(self, request, pk):
-        serial = Peopler(People.objects.filter(city=pk), many=True)
-        cityname = Cityer(City.objects.get(id=pk)).data['cityname']
+        people = People.objects.filter(city=pk)
+        serial = Peopler(people, many=True)
+        cityname = people[0].city.cityname
         return Response({"City": cityname, "People from selected city": serial.data})
 
 
